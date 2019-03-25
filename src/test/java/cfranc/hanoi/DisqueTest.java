@@ -6,6 +6,10 @@ import org.junit.Test;
 
 public class DisqueTest {
 
+	Disque dSmall = new Disque(1);
+	Disque dMedium = new Disque(2);
+	Disque dTall = new Disque (3);
+
 	@Test
 	public void testCompareTo() {
 		Disque petit = new Disque(1);
@@ -14,6 +18,30 @@ public class DisqueTest {
 		assertEquals(-1, petit.compareTo(moyen));
 		assertEquals(-1, moyen.compareTo(grand));
 		//TODO : à compléter
+
 	}
+
+	@Test
+	public void testCompareTo_SendMedium_Negative() {
+		int expected = -1;
+		int actual = dSmall.compareTo(dMedium);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testCompareTo_SendTall_Negative() {
+		int expected = -1;
+		int actual = dMedium.compareTo(dTall);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testCompareTo_SendSmall_Positive() {
+		int expected = 1;
+		int actual = dTall.compareTo(dSmall);
+		assertEquals(expected, actual);
+	}
+
+
 
 }
